@@ -1,3 +1,4 @@
+
 //*============================================ IMG SLIDER
 
 const imgWrappers = Array.from(document.querySelectorAll('.card__img__wrapper'));
@@ -11,18 +12,23 @@ const imgWrappers = Array.from(document.querySelectorAll('.card__img__wrapper'))
       }
       })
   })
+
 window.addEventListener('click', function(event){
   if(event.target.dataset.item === 'slideImage'){
+   
    const imgWrapper = event.target.closest('.card__img__wrapper');
-   const arrayImages = Array.from(imgWrapper.children);   
+   const arrayImages = Array.from(imgWrapper.children);
+   
 
      const slideActive = imgWrapper.querySelector('[data-activeslide]');
+     
      const slideActiveIndex = +slideActive.dataset.index;
      
       slideActive.classList.add('none');
       slideActive.removeAttribute('data-activeslide');
       
       let nextSlideIndex = slideActiveIndex+1 === arrayImages.length ? 0 : slideActiveIndex + 1;
+      
 
       const nextSlideImg = arrayImages[nextSlideIndex];
       nextSlideImg.classList.remove('none');
@@ -30,6 +36,7 @@ window.addEventListener('click', function(event){
 
   }
 })
+
 
 //*================================================================ COUNTERS
 
